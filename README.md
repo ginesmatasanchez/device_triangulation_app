@@ -3,9 +3,21 @@ Aplicación Java para triangular la posición de un aparato, dentro de un plano 
 
 Repos interesantes:
 
-https://github.com/ajnas/WiFiPS
+-https://github.com/ajnas/WiFiPS
 
-https://github.com/themadcreator/delaunay/tree/master
+-https://github.com/themadcreator/delaunay/tree/master
+
+(posible uso del algoritmo Delauny(?))
+
+
+
+-https://github.com/aubruz/ips
+
+(\app\src\main\java\com\mse\ips\lib\Tools.java interesante linea 71-83, conversion de pixeles a metros)
+
+-https://github.com/Makerfabs/Makerfabs-ESP32-UWB
+
+(repo ESP32 UWB Indoor Positioning)
 
 
 
