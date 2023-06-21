@@ -3,11 +3,11 @@ import java.util.List;
 
 public class Floor {
         private int floorNumber;
-    private List<Room> rooms;
+    private List<Zone> zones;
 
     public Floor(int floorNumber) {
         this.floorNumber = floorNumber;
-        this.rooms = new ArrayList<>();
+        this.zones = new ArrayList<>();
             
 }
 
@@ -19,15 +19,15 @@ public class Floor {
         this.floorNumber = floorNumber;
     }
 
-    public List<Room> getRooms() {
-        return this.rooms;
+    public List<Zone> getZones() {
+        return this.zones;
     }
 
-    public void setRooms(List<Room> rooms) {
-        this.rooms = rooms;
+    public void setZones(List<Zone> zones) {
+        this.zones = zones;
     }
 
-    public void addRoom(Room room) {
-        this.rooms.add(room);
+    public void addZone(Zone zone) {
+        this.zones.add(zone);
     }
 }

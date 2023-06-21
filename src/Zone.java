@@ -1,10 +1,10 @@
 //import org.json.*;
 
-public class Room {
+public class Zone {
     private String name;
     private Triangle trianglePosition;
 
-    public Room(String name, Triangle trianglePosition) {
+    public Zone(String name, Triangle trianglePosition) {
             this.name = name;
             this.trianglePosition = trianglePosition;
         }
