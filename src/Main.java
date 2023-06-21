@@ -13,6 +13,8 @@ public class Main extends JFrame{
     
     private BufferedImage planoImage;
     private JPanel panel;
+    private JTextField infoTextField;
+    
 
     public Main() {
 
@@ -54,28 +56,43 @@ public class Main extends JFrame{
 
 
 
-        // Crear un botón para dibujar el punto
-        JButton dibujarPuntoButton = new JButton("Dibujar Punto");
-        dibujarPuntoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Obtener las coordenadas desde alguna fuente, como un campo de texto o un servidor
-                int x = obtenerCoordenadaX();
-                int y = obtenerCoordenadaY();
 
-                // Ajustar las coordenadas dentro de los límites del plano
-                if (x < 0) x = 0;
-                if (x >= planoImage.getWidth()) x = planoImage.getWidth() - 1;
-                if (y < 0) y = 0;
-                if (y >= planoImage.getHeight()) y = planoImage.getHeight() - 1;
 
-                // Realizar acciones con las coordenadas ajustadas, por ejemplo, dibujar un punto
-                dibujarPunto(x, y);
-            }
-        });
+        infoTextField = new JTextField(20);
+
+            // Crear un botón para dibujar el punto
+            JButton dibujarPuntoButton = new JButton("Dibujar Punto");
+            dibujarPuntoButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // Obtener las coordenadas desde alguna fuente, como un campo de texto o un servidor
+                    int x = obtenerCoordenadaX();
+                    int y = obtenerCoordenadaY();
+
+                    // Ajustar las coordenadas dentro de los límites del plano
+                    if (x < 0) x = 0;
+                    if (x >= planoImage.getWidth()) x = planoImage.getWidth() - 1;
+                    if (y < 0) y = 0;
+                    if (y >= planoImage.getHeight()) y = planoImage.getHeight() - 1;
+
+                    // Realizar acciones con las coordenadas ajustadas, por ejemplo, dibujar un punto
+                    dibujarPunto(x, y);
+
+                    // Simulación de la posición y la planta del jugador
+                    int posicion = 5; // Ejemplo de posición
+                    int planta = 2; // Ejemplo de planta
+
+
+                    
+                    // Mostrar la información en el JTextField
+                    infoTextField.setText("Posición: " + posicion + ", Planta: " + planta);
+
+                }
+            });
 
         // Agregar el botón al JFrame
         getContentPane().add(dibujarPuntoButton, BorderLayout.SOUTH);
+        add(infoTextField, BorderLayout.NORTH);
 
         // Mostrar el JFrame
         pack();
@@ -97,6 +114,14 @@ public class Main extends JFrame{
         //return 0; // Valor de ejemplo
         return 150;
     }
+
+    /*private int obtenerCoordenadaZ() {
+        // Implementar la lógica para obtener la coordenada Y desde alguna fuente (campo de texto, servidor, etc.)
+        // Por ejemplo, supongamos que se obtiene desde un campo de texto llamado "coordenadaYTextField"
+        // return Integer.parseInt(coordenadaYTextField.getText());
+        //return 0; // Valor de ejemplo
+        return 150;
+    }*/
 
     /*private void dibujarPunto(int x, int y) {
         // Crear un objeto Graphics2D para dibujar en el JLabel
