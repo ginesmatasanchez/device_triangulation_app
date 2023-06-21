@@ -1,19 +1,20 @@
-public class Admin extends User {
-    private String role;
+class Admin extends User {
+    private String adminId;
 
-    public Admin(String name, String email, String pasword, String role) {
-        super(name, email, pasword);
-        this.role = role;
+    public Admin(String email, String password, String adminId) {
+        super(email, password);
+        this.adminId = adminId;
     }
 
-
-    public String getRole() {
-        return this.role;
+    public String getAdminId() {
+        return adminId;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setAdminId(String adminId) {
+        this.adminId = adminId;
     }
-
 
 }
+
+//Admin admin = new Admin("admin@example.com", "adminpassword", "A123");
+
