@@ -15,6 +15,10 @@ Repos interesantes:
 
 (\app\src\main\java\com\mse\ips\lib\Tools.java interesante linea 71-83, conversion de pixeles a metros)
 
+-https://github.com/Makerfabs/Makerfabs-ESP32-UWB
+
+(repo ESP32 UWB Indoor Positioning)
+
 
 
 
