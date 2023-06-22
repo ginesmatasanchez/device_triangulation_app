@@ -20,6 +20,15 @@ Repos interesantes:
 (repo ESP32 UWB Indoor Positioning)
 
 
+Links interesantes:
+
+-https://www.makerfabs.cc/article/esp32-uwb-indoor-positioning-test.html
+
+-https://www.youtube.com/watch?v=rd5qukiDjys
+
+-https://www.youtube.com/watch?v=-GNkobAxao0
+
+
 
 
 # Pasos generales:
