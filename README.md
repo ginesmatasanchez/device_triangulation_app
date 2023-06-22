@@ -1,6 +1,10 @@
 # device_triangulation_app
 Aplicación Java para triangular la posición de un aparato, dentro de un plano 2D (importado previamente).
 
+Esquema gráfico de estrutura de datos:
+
+-https://www.goconqr.com/es-ES/flowchart/13318321/sin-titulo
+
 Repos interesantes:
 
 -https://github.com/ajnas/WiFiPS
