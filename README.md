@@ -1,11 +1,11 @@
 # device_triangulation_app
 Aplicación Java para triangular la posición de un aparato, dentro de un plano 2D (importado previamente).
 
-Esquema gráfico de estrutura de datos:
+## Esquema gráfico de estrutura de datos:
 
 -https://www.goconqr.com/es-ES/flowchart/13318321/sin-titulo
 
-Repos interesantes:
+## Repos interesantes:
 
 -https://github.com/ajnas/WiFiPS
 
@@ -24,7 +24,7 @@ Repos interesantes:
 (repo ESP32 UWB Indoor Positioning)
 
 
-Links interesantes:
+## Links interesantes:
 
 -https://www.makerfabs.cc/article/esp32-uwb-indoor-positioning-test.html
 
@@ -56,7 +56,7 @@ Recuerda que estos son solo pasos generales y el proceso de desarrollo puede var
 
 ------------------------------------------------
 
-# Ejemplo:
+## Ejemplo:
 
 1. Diseño del plano y la interfaz de usuario:
 ```java
@@ -229,7 +229,7 @@ En este ejemplo, se utiliza JavaFX para crear una ventana (`Stage`) y un contene
 
 
 
-# Algoritmo Delaunay para triangular la posicion
+## Algoritmo Delaunay para triangular la posicion
 
 Para utilizar el algoritmo de triangulación de Delaunay y triangular la posición en el plano, necesitarás una biblioteca que implemente dicho algoritmo. Existen varias opciones disponibles, pero una popular es la biblioteca JDT (Java Delaunay Triangulation).
 
