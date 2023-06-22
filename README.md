@@ -5,7 +5,7 @@ Aplicación Java para triangular la posición de un aparato, dentro de un plano 
 
 -https://www.goconqr.com/es-ES/flowchart/13318321/sin-titulo
 
-## Repos interesantes:
+### Repos interesantes:
 
 -https://github.com/ajnas/WiFiPS
 
@@ -24,7 +24,7 @@ Aplicación Java para triangular la posición de un aparato, dentro de un plano 
 (repo ESP32 UWB Indoor Positioning)
 
 
-## Links interesantes:
+### Links interesantes:
 
 -https://www.makerfabs.cc/article/esp32-uwb-indoor-positioning-test.html
 
