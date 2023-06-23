@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Map Import</title>
+</head>
+<body>
+  <h1>SVG Map Import</h1>
+  
+  <input type="file" accept=".svg" id="mapInput">
+  <button id="importButton">Import Map</button>
+  
+  <div id="mapContainer">
+    <svg id="mapSvg" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+      <!-- SVG map content goes here -->
+      <svg id="mapSvg" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+        <rect x="50" y="50" width="400" height="400" fill="#f0f0f0" stroke="#000" stroke-width="2" />
+        <circle cx="250" cy="250" r="50" fill="blue" />
+      </svg>
+      
+
+    </svg>
+  </div>
+
+  <button id="drawPointButton">Dibujar punto en el mapa</button>
+
+  <script>
+    const mapInput = document.getElementById('mapInput');
+    const importButton = document.getElementById('importButton');
+    const drawPointButton = document.getElementById('drawPointButton');
+    const mapSvg = document.getElementById('mapSvg');
+
+    importButton.addEventListener('click', () => {
+      mapInput.click();
+    });
+
+    mapInput.addEventListener('change', () => {
+      const file = mapInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        const svgContent = e.target.result;
+        mapSvg.innerHTML = svgContent;
+      };
+
+      reader.readAsText(file);
+    });
+
+    drawPointButton.addEventListener('click', () => {
+      const x = 100; // Example x coordinate
+      const y = 200; // Example y coordinate
+
+      const point = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      point.setAttribute("cx", x);
+      point.setAttribute("cy", y);
+      point.setAttribute("r", 5);
+      point.setAttribute("fill", "red");
+      
+      mapSvg.appendChild(point);
+    });
+  </script>
+</body>
+</html>
+
