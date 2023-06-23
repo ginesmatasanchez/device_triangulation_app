@@ -17,3 +17,6 @@ class Floor:
 
     def add_zone(self, zone):
         self.zones.append(zone)
+        
+    def remove_zone(self, zone):
+        self.zones.remove(zone)

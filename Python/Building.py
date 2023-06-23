@@ -3,7 +3,7 @@ class Building:
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
-        self.floors = []
+        self.floors = {}
 
     def get_name(self):
         return self.name
@@ -26,5 +26,14 @@ class Building:
     def get_floors(self):
         return self.floors
 
-    def set_floors(self, floors):
-        self.floors = floors
+    """def set_floors(self, floors):
+        self.floors = floors"""
+    
+    
+    #Relacion entre un edifico con varias plantas (OneToMany)
+    def add_floor(self, floor):
+        if self in self.floors:
+            self.floors[self].apend(floor)
+        else:
+            self.floors[self] = [floor]
+    

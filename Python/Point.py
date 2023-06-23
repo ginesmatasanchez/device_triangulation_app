@@ -28,3 +28,6 @@ class Point:
 
     def set_device(self, device):
         self.device = device
+
+
+
