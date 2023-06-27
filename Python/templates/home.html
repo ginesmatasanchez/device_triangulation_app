@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG Map Import</title>
+  <title>SiloIn Map</title>
   <style>
     body {
       font-family: "Arial", sans-serif;
@@ -33,6 +33,10 @@
     }
     #mapContainer {
       text-align: center;
+      overflow: hidden;
+      width: 100%;
+      height: 100vh;
+      z-index: 1;
     }
     svg {
       max-width: 100%;
@@ -78,6 +82,12 @@
     .device-item:hover {
       background-color: #ccc;
     }
+    .logo {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    
 
     @media only screen and (max-width: 768px) {
       h1 {
@@ -97,36 +107,52 @@
         margin-top: 10px;
       }
       .sidebar {
-        width: 100%;
-        height: auto;
-        position: static;
+        position: fixed;
+        bottom: 0;
+        height: 100vh;
+        width: 200px;
+        background-color: #f0f0f0;
+        padding: 20px;
+        box-sizing: border-box;
+        z-index: 2;
       }
+
+      
     }
   </style>
 </head>
 <body>
-  <h1>SVG Map Import</h1>
+  <h1></h1>
   
   <div class="button-container">
     <input type="file" accept=".svg" id="mapInput">
     <div id="mapContainer">
-      <svg id="mapSvg" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+      <svg id="mapSvg" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
         <rect x="50" y="50" width="400" height="400" fill="#f0f0f0" stroke="#000" stroke-width="2" />
         <text x="250" y="250" font-size="24" text-anchor="middle" fill="blue" cursor="pointer" id="importText">Click para importar</text>
       </svg>
+      
     </div>
   </div>
-  
-  <button id="zoomInButton">Zoom In</button>
-  <button id="zoomOutButton">Zoom Out</button>
-  
+
   <div class="sidebar">
+
+    {% comment %} REVISAR PORQUE NO APARECE ENCIMA DE LA BARRA DE BUSQUEDA EL LOGO {% endcomment %}
+    <img src="../assets/LogoPruebaSiloIn.svg" alt="Logo SiloIn" class="logo">
+
+
+
     <input type="text" class="search-input" id="searchInput" placeholder="Buscar dispositivo...">
+    
     <ul class="device-list" id="deviceList">
       <li class="device-item" data-coordinates="200,300">Maquina Rayos X</li>
       <li class="device-item" data-coordinates="400,150">Maquina Ecografías</li>
       <li class="device-item" data-coordinates="100,400">Maquina Electrocardiograma</li>
     </ul>
+
+    <button id="zoomInButton">Zoom In</button>
+    <button id="zoomOutButton">Zoom Out</button>
+
   </div>
   
   <script>
