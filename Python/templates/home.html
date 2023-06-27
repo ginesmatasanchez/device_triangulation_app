@@ -4,13 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SVG Map Import</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    label {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+    #mapContainer {
+      text-align: center;
+    }
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+    #zoomInButton,
+    #zoomOutButton {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 200px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .search-input {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+    .device-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .device-item {
+      cursor: pointer;
+      padding: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+    }
+
+    @media only screen and (max-width: 768px) {
+      h1 {
+        font-size: 24px;
+      }
+      label {
+        padding: 8px 16px;
+        font-size: 16px;
+      }
+      #zoomInButton,
+      #zoomOutButton {
+        margin: 10px auto;
+        padding: 8px 16px;
+        font-size: 16px;
+      }
+      .button-container {
+        margin-top: 10px;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+      }
+    }
+  </style>
 </head>
 <body>
   <h1>SVG Map Import</h1>
   
-  <input type="file" accept=".svg" id="mapInput">
-  <button id="importButton">Import Map</button>
-  
+  <div class="button-container">
+    <input type="file" accept=".svg" id="mapInput">
+    <label for="mapInput" id="importButton">Import Map</label>
+  </div>
   <div id="mapContainer">
     <svg id="mapSvg" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
       <!-- SVG map content goes here -->
@@ -18,18 +115,35 @@
         <rect x="50" y="50" width="400" height="400" fill="#f0f0f0" stroke="#000" stroke-width="2" />
         <circle cx="250" cy="250" r="50" fill="blue" />
       </svg>
-      
-
     </svg>
   </div>
-
-  <button id="drawPointButton">Dibujar punto en el mapa</button>
-
+  
+  <button id="drawPointButton">ENCUENTRAME</button>
+  <button id="zoomInButton">Zoom In</button>
+  <button id="zoomOutButton">Zoom Out</button>
+  
+  <div class="sidebar">
+    <input type="text" class="search-input" id="searchInput" placeholder="Buscar dispositivo...">
+    <ul class="device-list" id="deviceList">
+      <li class="device-item" data-coordinates="200,300">Maquina Rayos X</li>
+      <li class="device-item" data-coordinates="400,150">Maquina Ecografías</li>
+      <li class="device-item" data-coordinates="100,400">Maquina Electrocardiograma</li>
+    </ul>
+  </div>
+  
   <script>
     const mapInput = document.getElementById('mapInput');
     const importButton = document.getElementById('importButton');
     const drawPointButton = document.getElementById('drawPointButton');
+    const zoomInButton = document.getElementById('zoomInButton');
+    const zoomOutButton = document.getElementById('zoomOutButton');
+    const mapContainer = document.getElementById('mapContainer');
     const mapSvg = document.getElementById('mapSvg');
+    const searchInput = document.getElementById('searchInput');
+    const deviceList = document.getElementById('deviceList');
+
+    let zoomLevel = 1;
+    let points = [];
 
     importButton.addEventListener('click', () => {
       mapInput.click();
@@ -56,10 +170,81 @@
       point.setAttribute("cy", y);
       point.setAttribute("r", 5);
       point.setAttribute("fill", "red");
-      
+
+      clearPoints();
       mapSvg.appendChild(point);
+      points.push(point);
+      zoomToCoordinates(x, y);
     });
+
+    zoomInButton.addEventListener('click', () => {
+      const selectedPoint = points[points.length - 1];
+      if (selectedPoint) {
+        const x = parseInt(selectedPoint.getAttribute("cx"));
+        const y = parseInt(selectedPoint.getAttribute("cy"));
+        zoomLevel += 0.1;
+        mapContainer.style.transformOrigin = `${x}px ${y}px`;
+        mapContainer.style.transform = `scale(${zoomLevel})`;
+      }
+    });
+
+    zoomOutButton.addEventListener('click', () => {
+      const selectedPoint = points[points.length - 1];
+      if (selectedPoint) {
+        const x = parseInt(selectedPoint.getAttribute("cx"));
+        const y = parseInt(selectedPoint.getAttribute("cy"));
+        zoomLevel -= 0.1;
+        mapContainer.style.transformOrigin = `${x}px ${y}px`;
+        mapContainer.style.transform = `scale(${zoomLevel})`;
+      }
+    });
+
+    searchInput.addEventListener('input', () => {
+      const searchValue = searchInput.value.toLowerCase();
+      const deviceItems = deviceList.getElementsByClassName('device-item');
+
+      for (let i = 0; i < deviceItems.length; i++) {
+        const deviceItem = deviceItems[i];
+        const deviceName = deviceItem.textContent.toLowerCase();
+
+        if (deviceName.includes(searchValue)) {
+          deviceItem.style.display = 'block';
+        } else {
+          deviceItem.style.display = 'none';
+        }
+      }
+    });
+
+    deviceList.addEventListener('click', (event) => {
+      const deviceItem = event.target;
+      const coordinates = deviceItem.getAttribute('data-coordinates').split(',');
+      const x = parseInt(coordinates[0]);
+      const y = parseInt(coordinates[1]);
+
+      clearPoints();
+      const point = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      point.setAttribute("cx", x);
+      point.setAttribute("cy", y);
+      point.setAttribute("r", 5);
+      point.setAttribute("fill", "red");
+      mapSvg.appendChild(point);
+      points.push(point);
+      zoomToCoordinates(x, y);
+    });
+
+    function clearPoints() {
+      for (let i = 0; i < points.length; i++) {
+        const point = points[i];
+        point.remove();
+      }
+      points = [];
+    }
+
+    function zoomToCoordinates(x, y) {
+      zoomLevel = 1;
+      mapContainer.style.transformOrigin = `${x}px ${y}px`;
+      mapContainer.style.transform = `scale(${zoomLevel})`;
+    }
   </script>
 </body>
 </html>
-

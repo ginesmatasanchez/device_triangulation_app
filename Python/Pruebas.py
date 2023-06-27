@@ -189,27 +189,32 @@ if __name__ == "__main__":
     main()"""
     
     
-    
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, render_template, url_for
+from flask_sqlalchemy import SQLAlchemy
 from Pruebas2 import Pruebas2
+
+# create the extension
+db = SQLAlchemy()
 
 app = Flask(__name__)
 app.register_blueprint(Pruebas2, url_prefix='/admin')
 
 @app.route('/')
 def home():
-        return "Hello! this is the home page <h1> HELLO!</h1>"
-    
-    
-"""@app.route("/<name>")
-def user(name):
-    return f"Hello {name}!" """
+    return "Hello! This is the home page <h1>HELLO!</h1>"
 
-"""@app.route('/admin')
-def admin():
-    return redirect(url_for("home"))"""
-    
+@app.route('/landing')
+def landing():
+    return render_template("landing.html")
+
+@app.route('/admin/home')
+def admin_home():
+    return "Admin Home Page"
+
 if __name__ == "__main__":
     app.run(debug=True)
-    
-    
+
+# configure the PostgreSQL database, relative to the app instance folder
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://myuser:mypassword@localhost:5432/mydatabase'
+# initialize the app with the extension
+db.init_app(app)

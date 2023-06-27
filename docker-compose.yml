@@ -1,0 +1,14 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - requirements_file=requirements.txt
+    command: python manage.py run -h 0.0.0.0
+#    volumes:
+#      - ./:/device_triangulation_app
+    ports:
+      - 5001:5000
+    env_file:
+      - .env.dev

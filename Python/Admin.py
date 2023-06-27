@@ -1,3 +1,6 @@
+from Python.User import User
+
+
 class Admin(User):
     def __init__(self, email, password, admin_id):
         super().__init__(email, password)

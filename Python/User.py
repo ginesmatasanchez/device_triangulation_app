@@ -1,8 +1,22 @@
+"""import dbm
+from shelve import DbfilenameShelf as db
+
+
+class User(dbm.Model):
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+    roles = db.relationship('Role', secondary='user_roles', backref=db.backref('users', lazy='dynamic'))"""
+    
 class User:
     def __init__(self, email, password):
         self.email = email
         self.password = password
         self.roles = set()
+
+
 
     def get_email(self):
         return self.email

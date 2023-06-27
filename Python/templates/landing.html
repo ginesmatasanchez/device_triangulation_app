@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landing Page</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    p {
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .container {
+        padding-top: 50px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+      }
+      button {
+        padding: 8px 16px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenido a nuestra página</h1>
+    <p>Encuentra tu dispositivo aquí:</p>
+    <a href="/admin/home">
+      <button>Encontrar Dispositivo</button>
+    </a>
+  </div>
+</body>
+</html>
