@@ -75,6 +75,9 @@
       font-weight: bold;
       border-bottom: 1px solid #ccc;
     }
+    .device-item:hover {
+      background-color: #ccc;
+    }
 
     @media only screen and (max-width: 768px) {
       h1 {
@@ -106,19 +109,14 @@
   
   <div class="button-container">
     <input type="file" accept=".svg" id="mapInput">
-    <label for="mapInput" id="importButton">Import Map</label>
-  </div>
-  <div id="mapContainer">
-    <svg id="mapSvg" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-      <!-- SVG map content goes here -->
+    <div id="mapContainer">
       <svg id="mapSvg" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
         <rect x="50" y="50" width="400" height="400" fill="#f0f0f0" stroke="#000" stroke-width="2" />
-        <circle cx="250" cy="250" r="50" fill="blue" />
+        <text x="250" y="250" font-size="24" text-anchor="middle" fill="blue" cursor="pointer" id="importText">Click para importar</text>
       </svg>
-    </svg>
+    </div>
   </div>
   
-  <button id="drawPointButton">ENCUENTRAME</button>
   <button id="zoomInButton">Zoom In</button>
   <button id="zoomOutButton">Zoom Out</button>
   
@@ -133,8 +131,7 @@
   
   <script>
     const mapInput = document.getElementById('mapInput');
-    const importButton = document.getElementById('importButton');
-    const drawPointButton = document.getElementById('drawPointButton');
+    const importText = document.getElementById('importText');
     const zoomInButton = document.getElementById('zoomInButton');
     const zoomOutButton = document.getElementById('zoomOutButton');
     const mapContainer = document.getElementById('mapContainer');
@@ -145,7 +142,7 @@
     let zoomLevel = 1;
     let points = [];
 
-    importButton.addEventListener('click', () => {
+    importText.addEventListener('click', () => {
       mapInput.click();
     });
 
@@ -161,20 +158,20 @@
       reader.readAsText(file);
     });
 
-    drawPointButton.addEventListener('click', () => {
-      const x = 100; // Example x coordinate
-      const y = 200; // Example y coordinate
+    mapContainer.addEventListener('click', () => {
+      mapInput.click();
+    });
 
-      const point = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      point.setAttribute("cx", x);
-      point.setAttribute("cy", y);
-      point.setAttribute("r", 5);
-      point.setAttribute("fill", "red");
-
-      clearPoints();
-      mapSvg.appendChild(point);
-      points.push(point);
-      zoomToCoordinates(x, y);
+    mapInput.addEventListener('change', () => {
+      const file = mapInput.files[0];
+      const reader = new FileReader();
+    
+      reader.onload = (e) => {
+        const svgContent = e.target.result;
+        mapSvg.innerHTML = svgContent;
+      };
+    
+      reader.readAsText(file);
     });
 
     zoomInButton.addEventListener('click', () => {
