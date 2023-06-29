@@ -11,25 +11,105 @@ class User(dbm.Model):
     roles = db.relationship('Role', secondary='user_roles', backref=db.backref('users', lazy='dynamic'))"""
     
 class User:
-    def __init__(self, email, password):
-        self.email = email
+    def __init__(self, name, password, email, id_company, id_profile, mobile_number, created, last_login, active):
+        self.name = name
         self.password = password
+        self.email = email
+        self.id_company = id_company
+        self.id_profile = id_profile
+        self.mobile_number = mobile_number
+        self.created = created
+        self.last_login = last_login
+        self.active = active
         self.roles = set()
 
 
 
-    def get_email(self):
-        return self.email
+    
+    
+    
+    # Getter y Setter para la propiedad "name"
+    @property
+    def name(self):
+        return self._name
 
-    def set_email(self, email):
-        self.email = email
+    @name.setter
+    def name(self, value):
+        self._name = value
 
-    def get_password(self):
-        return self.password
+    # Getter y Setter para la propiedad "password"
+    @property
+    def password(self):
+        return self._password
 
-    def set_password(self, password):
-        self.password = password
+    @password.setter
+    def password(self, value):
+        self._password = value
 
+    # Getter y Setter para la propiedad "email"
+    @property
+    def email(self):
+        return self._email
+
+    @email.setter
+    def email(self, value):
+        self._email = value
+
+    # Getter y Setter para la propiedad "id_company"
+    @property
+    def id_company(self):
+        return self._id_company
+
+    @id_company.setter
+    def id_company(self, value):
+        self._id_company = value
+
+    # Getter y Setter para la propiedad "id_profile"
+    @property
+    def id_profile(self):
+        return self._id_profile
+
+    @id_profile.setter
+    def id_profile(self, value):
+        self._id_profile = value
+
+    # Getter y Setter para la propiedad "mobile_number"
+    @property
+    def mobile_number(self):
+        return self._mobile_number
+
+    @mobile_number.setter
+    def mobile_number(self, value):
+        self._mobile_number = value
+
+    # Getter y Setter para la propiedad "created"
+    @property
+    def created(self):
+        return self._created
+
+    @created.setter
+    def created(self, value):
+        self._created = value
+
+    # Getter y Setter para la propiedad "last_login"
+    @property
+    def last_login(self):
+        return self._last_login
+
+    @last_login.setter
+    def last_login(self, value):
+        self._last_login = value
+
+    # Getter y Setter para la propiedad "active"
+    @property
+    def active(self):
+        return self._active
+
+    @active.setter
+    def active(self, value):
+        self._active = value
+        
+        
     def get_roles(self):
         return self.roles
 
