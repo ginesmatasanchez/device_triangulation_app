@@ -202,6 +202,17 @@
     <button id="zoomInButton">&#128269; +</button>
     <button id="zoomOutButton">&#128269; -</button>
 
+    <div class="building-selection">
+      <label for="building-select">Seleccionar edificio:</label>
+      <select id="building-select">
+        <option value="">Seleccione un edificio</option>
+        <option value="building1">Edificio 1</option>
+        <option value="building2">Edificio 2</option>
+        <option value="building3">Edificio 3</option>
+      </select>
+    </div>
+    
+
   </div>
   
   <script>
@@ -321,6 +332,55 @@
       mapContainer.style.transformOrigin = `${x}px ${y}px`;
       mapContainer.style.transform = `scale(${zoomLevel})`;
     }
+
+    const buildingSelect = document.getElementById('building-select');
+    buildingSelect.addEventListener('change', (event) => {
+      const selectedBuilding = event.target.value;
+      if (selectedBuilding) {
+        // Aquí puedes abrir una ventana o realizar la acción que desees al seleccionar un edificio.
+        // Puedes usar la variable "selectedBuilding" para realizar las operaciones necesarias según el edificio seleccionado.
+        // Por ejemplo, podrías mostrar un menú desplegable para seleccionar la planta del edificio seleccionado.
+
+        // Ejemplo de código:
+
+        function handleBuildingSelection(selectedBuilding) {
+          // Realizar acciones según el edificio seleccionado
+          switch (selectedBuilding) {
+            case 'Edificio A':
+              // Acciones específicas para el Edificio A
+              // Por ejemplo, mostrar un menú desplegable para seleccionar la planta
+              showFloorDropdown(selectedBuilding);
+              break;
+            case 'Edificio B':
+              // Acciones específicas para el Edificio B
+              // Por ejemplo, abrir una ventana con información del edificio
+              openBuildingWindow(selectedBuilding);
+              break;
+            case 'Edificio C':
+              // Acciones específicas para el Edificio C
+              // Por ejemplo, realizar una llamada a una API para obtener datos del edificio
+              fetchBuildingData(selectedBuilding);
+              break;
+            default:
+              // Acciones por defecto si no se reconoce el edificio seleccionado
+              break;
+          }
+        }
+
+        function showFloorDropdown(building) {
+          // Código para mostrar un menú desplegable con las plantas del edificio seleccionado
+        }
+
+        function openBuildingWindow(building) {
+          // Código para abrir una ventana con información del edificio seleccionado
+        }
+
+        function fetchBuildingData(building) {
+          // Código para realizar una llamada a una API y obtener datos del edificio seleccionado
+        }
+          }
+        });
+
   </script>
 </body>
 </html>
