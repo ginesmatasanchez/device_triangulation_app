@@ -4,26 +4,108 @@
   <title>Landing Page</title>
   <style>
     body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       font-family: "Arial", sans-serif;
       margin: 0;
       padding: 0;
     }
     .container {
-      text-align: center;
-      padding-top: 100px;
+      text-align: left;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 80px;
     }
     h1 {
-      font-size: 36px;
+      font-size: 150px;
       font-weight: bold;
-    }
-    p {
-      font-size: 18px;
+      margin-top: 50px;
     }
     button {
       padding: 10px 20px;
       font-size: 18px;
       font-weight: bold;
+      background-color: black;
+      color: white;
+      border-radius: 5px;
     }
+    button:hover {
+      background-color: #fff;
+      color: black;
+    }
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+    
+    header {
+      background-color: #f2f2f2;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      box-shadow: 0px 0px 8px #CFCFCF;
+    }
+    header svg {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    nav {
+      margin-left: auto;
+      margin-right: 30px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    nav ul li a {
+      position: relative;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    
+    nav ul li a:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: #333;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    nav ul li a:hover:after {
+      transform: scaleX(1);
+    }
+    
+
+    
 
     @media only screen and (max-width: 768px) {
       .container {
@@ -31,9 +113,6 @@
       }
       h1 {
         font-size: 24px;
-      }
-      p {
-        font-size: 16px;
       }
       button {
         padding: 8px 16px;
@@ -43,12 +122,66 @@
   </style>
 </head>
 <body>
+  <header>
+    <a href="/landing">
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 57" width="200" height="57">
+        <title>LogoPruebaSiloIn-svg</title>
+        <style>
+          .s0 { fill: #000000 } 
+        </style>
+        <g id="Layer">
+          <g id="Layer">
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m1 1h198v55h-198zm148 1h-146v53h146zm24.3 4.1c-0.5 0-5.2 2.2-10.5 5l-9.8 4.9v25l3.2 1.9c1.7 1.1 6.4 3.4 10.3 5.1l7.3 3.2 9.8-4.9 9.9-4.8 0.3-12.7 0.3-12.8-10.1-5c-5.5-2.7-10.3-5-10.7-4.9z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m40 9.5c-2.6 3.2 1.3 8.1 4.8 5.9 3.4-2.2 2.2-7.4-1.8-7.4-1 0-2.3 0.7-3 1.5z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m54 29v19h3.5 3.5v-19-19h-3.5-3.5z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m13.4 13c-5.5 2.2-8.1 10.1-4.9 14.7 0.8 1.2 4.6 3.3 8.5 4.8 7.1 2.7 9.5 5 8.4 8-1.5 3.8-9.3 3.8-10.7 0.1-0.4-1-1.9-1.6-4.2-1.6-4.4 0-4.6 2-0.7 6 5 5 14.7 5.2 19.5 0.5 3.3-3.4 4-7.2 1.9-11.5-1.4-2.9-2.7-3.9-8.2-5.8-7.8-2.8-9.5-4.2-8.6-7.5 1-4.1 8.4-4.3 9.9-0.3 0.8 2 7.7 2.3 7.7 0.3 0-5.9-11.4-10.6-18.6-7.7z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m102 30.5v17.5h3.5 3.5v-17.5-17.5h-3.5-3.5z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m40 34v14h3 3v-14-14h-3-3z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m89.7 22c8.8 5.3 8.4 19.8-0.6 24.8-6.7 3.8-14.4 2.4-19-3.4-5.5-7-2.7-19.1 5.4-22.4 3.7-1.6 10.9-1.1 14.2 1zm-10.3 4.1c-8.1 2.9-6.4 16.9 2 16.9 4.4 0 7.6-3.5 7.6-8.4 0-2-0.4-4.6-1-5.6-1.3-2.3-5.9-3.9-8.6-2.9z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m117 34v14h3.5 3.5v-9.4c0-9 0.1-9.6 2.6-11.5 3.3-2.6 5.8-2.7 8.4-0.1 1.7 1.7 2 3.3 2 11.5v9.5h3.5 3.5v-10c0-14.1-2.3-18-10.5-18-2 0-4.9 0.7-6.5 1.5-2.7 1.4-3 1.4-3 0 0-1.1-1-1.5-3.5-1.5h-3.5z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m166.5 13.7l-7 3.6 7.1 3.5 7 3.4 6.9-3.5 6.9-3.5-6.9-3.5-7-3.5z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m157.5 21c0.2 0 3.4 1.4 7 3.2l6.5 3.2v18.6l-14-7v-9c0-5 0.2-9 0.5-9zm3 7c-0.3 0-0.5 1.7-0.5 3.8 0 3.4 0.4 4 3.5 5.5 2 0.9 3.8 1.7 4 1.7 0.3 0 0.5-1.7 0.5-3.8 0-3.4-0.4-4-3.5-5.5-2-0.9-3.8-1.7-4-1.7z"/>
+            <path id="Layer" fill-rule="evenodd" class="s0" d="m182.3 24.3l-6.3 3.1v9.3c0 9.1 0.1 9.3 2 8.3 1.6-0.8 2-2.1 2-5.9 0-4.2 0.3-4.9 2.5-5.9 3.6-1.6 3.5-1.7 3.5 3.3 0 4.3 0.1 4.5 2 3.5 1.8-0.9 2-2.1 2-10 0-5-0.3-9-0.7-8.9-0.5 0-3.6 1.4-7 3.2z"/>
+          </g>
+        </g>
+      </svg>
+      </a>
+
+    <nav>
+      <ul>
+        <li><a href="/landing/solutions">Soluciones</a></li>
+        <li><a href="/landing/technology">Tecnología</a></li>
+        <li><a href="/landing/contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <div class="container">
-    <h1>Bienvenido a nuestra página</h1>
-    <p>Encuentra tu dispositivo aquí:</p>
-    <a href="/admin/home">
+    <h1>Bienvenido a <br>SiloIn</h1>
+    <a href="/admin/home" style="margin-right: 20px;">
       <button>Encontrar Dispositivo</button>
     </a>
   </div>
+  <div id="background"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
+  <script>
+    VANTA.DOTS({
+      el: "#background",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x0,
+      color2: 0x0,
+      backgroundColor: 0xffffff,
+      spacing: 25.00,
+      showLines: false
+    });
+  </script>
 </body>
 </html>

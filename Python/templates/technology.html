@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Solutions Page</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      text-align: left;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 80px;
+    }
+    h1 {
+      font-size: 138px;
+      font-weight: bold;
+      margin-top: 158px;
+    }
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+    
+    header {
+      background-color: #f2f2f2;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      box-shadow: 0px 0px 8px #CFCFCF;
+    }
+    header svg {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    nav {
+      margin-left: auto;
+      margin-right: 30px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    nav ul li a {
+      position: relative;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    
+    nav ul li a:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: #333;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    nav ul li a:hover:after {
+      transform: scaleX(1);
+    }
+
+    .text-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 40%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 150px;
+    }
+    textuwb {
+      width: 100%;
+      height: 100%;
+      border: none;
+      resize: none;
+      font-size: 16px;
+      padding: 10px;
+      text-align: justify;
+      font-family: "Arial", sans-serif;
+      color: #666666
+    }
+    strong {
+      font-weight: bold;
+      color: #666666
+    }
+    
+
+    
+
+    @media only screen and (max-width: 768px) {
+      .container {
+        padding-top: 50px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/landing">
+    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 57" width="200" height="57">
+      <title>LogoPruebaSiloIn-svg</title>
+      <style>
+        .s0 { fill: #000000 } 
+      </style>
+      <g id="Layer">
+        <g id="Layer">
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m1 1h198v55h-198zm148 1h-146v53h146zm24.3 4.1c-0.5 0-5.2 2.2-10.5 5l-9.8 4.9v25l3.2 1.9c1.7 1.1 6.4 3.4 10.3 5.1l7.3 3.2 9.8-4.9 9.9-4.8 0.3-12.7 0.3-12.8-10.1-5c-5.5-2.7-10.3-5-10.7-4.9z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m40 9.5c-2.6 3.2 1.3 8.1 4.8 5.9 3.4-2.2 2.2-7.4-1.8-7.4-1 0-2.3 0.7-3 1.5z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m54 29v19h3.5 3.5v-19-19h-3.5-3.5z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m13.4 13c-5.5 2.2-8.1 10.1-4.9 14.7 0.8 1.2 4.6 3.3 8.5 4.8 7.1 2.7 9.5 5 8.4 8-1.5 3.8-9.3 3.8-10.7 0.1-0.4-1-1.9-1.6-4.2-1.6-4.4 0-4.6 2-0.7 6 5 5 14.7 5.2 19.5 0.5 3.3-3.4 4-7.2 1.9-11.5-1.4-2.9-2.7-3.9-8.2-5.8-7.8-2.8-9.5-4.2-8.6-7.5 1-4.1 8.4-4.3 9.9-0.3 0.8 2 7.7 2.3 7.7 0.3 0-5.9-11.4-10.6-18.6-7.7z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m102 30.5v17.5h3.5 3.5v-17.5-17.5h-3.5-3.5z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m40 34v14h3 3v-14-14h-3-3z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m89.7 22c8.8 5.3 8.4 19.8-0.6 24.8-6.7 3.8-14.4 2.4-19-3.4-5.5-7-2.7-19.1 5.4-22.4 3.7-1.6 10.9-1.1 14.2 1zm-10.3 4.1c-8.1 2.9-6.4 16.9 2 16.9 4.4 0 7.6-3.5 7.6-8.4 0-2-0.4-4.6-1-5.6-1.3-2.3-5.9-3.9-8.6-2.9z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m117 34v14h3.5 3.5v-9.4c0-9 0.1-9.6 2.6-11.5 3.3-2.6 5.8-2.7 8.4-0.1 1.7 1.7 2 3.3 2 11.5v9.5h3.5 3.5v-10c0-14.1-2.3-18-10.5-18-2 0-4.9 0.7-6.5 1.5-2.7 1.4-3 1.4-3 0 0-1.1-1-1.5-3.5-1.5h-3.5z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m166.5 13.7l-7 3.6 7.1 3.5 7 3.4 6.9-3.5 6.9-3.5-6.9-3.5-7-3.5z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m157.5 21c0.2 0 3.4 1.4 7 3.2l6.5 3.2v18.6l-14-7v-9c0-5 0.2-9 0.5-9zm3 7c-0.3 0-0.5 1.7-0.5 3.8 0 3.4 0.4 4 3.5 5.5 2 0.9 3.8 1.7 4 1.7 0.3 0 0.5-1.7 0.5-3.8 0-3.4-0.4-4-3.5-5.5-2-0.9-3.8-1.7-4-1.7z"/>
+          <path id="Layer" fill-rule="evenodd" class="s0" d="m182.3 24.3l-6.3 3.1v9.3c0 9.1 0.1 9.3 2 8.3 1.6-0.8 2-2.1 2-5.9 0-4.2 0.3-4.9 2.5-5.9 3.6-1.6 3.5-1.7 3.5 3.3 0 4.3 0.1 4.5 2 3.5 1.8-0.9 2-2.1 2-10 0-5-0.3-9-0.7-8.9-0.5 0-3.6 1.4-7 3.2z"/>
+        </g>
+      </g>
+    </svg>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="/landing/solutions">Soluciones</a></li>
+        <li><a href="/landing/technology">Tecnología</a></li>
+        <li><a href="/landing/contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1>Tecnología <br>UWB: <br>Precisión <br>Indoor</h1>
+  <div class="text-container">
+    <textuwb>   La tecnología <strong>UWB (Ultra-Wideband, Banda Ultra Ancha)</strong> se utiliza en sistemas de <strong>monitoreo indoor en tiempo real</strong> para proporcionar un <strong>seguimiento preciso y detallado</strong> de la ubicación y el movimiento de objetos o personas dentro de un espacio cerrado.<br><br>
+
+      UWB utiliza <strong>ondas de radio de baja potencia</strong> con un <strong>ancho de banda extremadamente amplio</strong>, lo que permite transmitir datos a altas velocidades y con una <strong>precisión milimétrica</strong>. Esta tecnología es capaz de <strong>medir distancias</strong> y calcular la <strong>ubicación relativa</strong> entre los dispositivos UWB de manera muy precisa, lo que la hace ideal para aplicaciones de seguimiento en entornos indoor.<br><br>
+      
+      El <strong>sistema de monitoreo indoor en tiempo real basado en UWB</strong> consta de varias <strong>antenas</strong> colocadas estratégicamente en el área a monitorear. Estas antenas emiten <strong>pulsos de radio UWB</strong> y miden el tiempo que tarda la señal en llegar a los dispositivos UWB ubicados en los objetos o personas que se desean rastrear. Utilizando la información de tiempo y la geometría de las antenas, el sistema puede calcular la <strong>ubicación tridimensional</strong> de los dispositivos UWB con alta precisión.<br><br>
+      
+      Este tipo de sistema es especialmente útil en entornos donde el <strong>seguimiento preciso</strong> es crucial, como en la <strong>seguridad en edificios</strong>, la <strong>gestión de activos</strong>, el <strong>control de acceso</strong> o la <strong>logística interna en almacenes</strong>. También se utiliza en aplicaciones de <strong>realidad virtual</strong> y <strong>aumentada</strong> para el <strong>mapeo de entornos virtuales con el mundo físico</strong>.<br><br>
+      
+      Una de las ventajas de la tecnología UWB es su capacidad para operar en entornos con <strong>alta interferencia</strong>, ya que utiliza una amplia gama de frecuencias y técnicas de modulación para evitar interferencias y garantizar una comunicación confiable. Además, UWB tiene un <strong>bajo consumo de energía</strong> y es compatible con otros sistemas de comunicación inalámbrica, lo que facilita su integración en diferentes aplicaciones.<br><br>
+      
+      En resumen, la tecnología UWB en los sistemas de <strong>monitoreo indoor en tiempo real</strong> permite un <strong>seguimiento preciso y detallado</strong> de la ubicación y el movimiento de objetos o personas en entornos cerrados. Su <strong>alta precisión</strong>, capacidad de operación en entornos con interferencias y <strong>baja energía</strong> la hacen una opción atractiva para una amplia gama de aplicaciones en <strong>seguridad</strong>, <strong>logística</strong> y <strong>realidad virtual</strong>, entre otros.</textuwb>
+  </div>
+
+
+
+</body>
+</html>

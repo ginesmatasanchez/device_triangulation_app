@@ -207,6 +207,18 @@ def home():
 def landing():
     return render_template("landing.html")
 
+@app.route('/landing/solutions')
+def solutions():
+    return render_template("solutions.html")
+
+@app.route('/landing/technology')
+def technology():
+    return render_template("technology.html")
+
+@app.route('/landing/contact')
+def contact():
+    return render_template("contact.html")
+
 @app.route('/admin/home')
 def admin_home():
     return "Admin Home Page"
