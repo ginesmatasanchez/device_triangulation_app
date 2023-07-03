@@ -55,9 +55,17 @@ erDiagram
     Empresa {
         Int id_empresa PK
         String nombre
+        String nif
         String direccion
+        String cp
+        String poblacion
+        String provincia
+        String pais
+        String registro
         String telefono
+        String movil
         String email
+        String web
         Timestamp creado
         Int activo
     }
