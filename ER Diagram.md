@@ -1,7 +1,7 @@
 ```mermaid
 erDiagram
     Usuario {
-        Int id_usuario <<PK>>
+        Int id_usuario PK
         String nombre
         String clave
         String email
@@ -71,5 +71,3 @@ erDiagram
     Zona ||--o{ Triangulo : contiene
     Planta ||--|{ Zona : contiene
     Usuario ||--o{ Empresa : pertenece_a
-
-´´´
