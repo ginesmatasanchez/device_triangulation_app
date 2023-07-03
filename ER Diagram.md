@@ -1,68 +1,65 @@
-```mermaid
 erDiagram
-    entity "Usuario" as usuario {
-        id_usuario INT <<PK>>
-        email VARCHAR(255)
-        contraseña VARCHAR(255)
+    User {
+        Int id_usuario PK
+        String email
+        String contrasena
     }
 
-    entity "Administrador" as administrador {
-        id_administrador INT <<PK>>
+    Administrador {
+        Int id_administrador PK
     }
 
-    entity "Edificio" as edificio {
-        id_edificio INT <<PK>>
-        nombre VARCHAR(255)
-        latitud DECIMAL(10, 6)
-        longitud DECIMAL(10, 6)
+    Edificio {
+        Int id_edificio PK
+        String nombre
+        Decimal latitud
+        Decimal longitud
     }
 
-    entity "Planta" as planta {
-        id_planta INT <<PK>>
-        numero_planta INT
+    Planta {
+        Int id_planta PK
+        Int numero_planta
     }
 
-    entity "Dispositivo" as dispositivo {
-        id_dispositivo INT <<PK>>
-        tipo_dispositivo VARCHAR(255)
-        nivel_bateria INT
+    Dispositivo {
+        Int id_dispositivo PK
+        String tipo_dispositivo
+        Int nivel_bateria
     }
 
-    entity "Punto" as punto {
-        id_punto INT <<PK>>
-        x FLOAT
-        y FLOAT
-        z FLOAT
+    Punto {
+        Int id_punto PK
+        Float x
+        Float y
+        Float z
     }
 
-    entity "Triangulo" as triangulo {
-        id_triangulo INT <<PK>>
+    Triangulo {
+        Int id_triangulo PK
     }
 
-    entity "Zona" as zona {
-        id_zona INT <<PK>>
-        nombre VARCHAR(255)
-        posicion_triangulo INT
+    Zona {
+        Int id_zona PK
+        String nombre
+        Int posicion_triangulo
     }
 
-    entity "Empresa" as empresa {
-        id_empresa INT <<PK>>
-        nombre VARCHAR(50)
-        direccion VARCHAR(100)
-        telefono VARCHAR(20)
-        email VARCHAR(50)
-        creado TIMESTAMP
-        activo INT
+    Empresa {
+        Int id_empresa PK
+        String nombre
+        String direccion
+        String telefono
+        String email
+        Timestamp creado
+        Int activo
     }
 
-    usuario ||--|{ administrador : belongs to
-    administrador ||--o{ edificio : owns
-    edificio ||--|{ planta : contains
-    edificio ||--o{ empresa : belongs to
-    dispositivo ||--o{ punto : has
-    triangulo ||--o{ punto : has
-    zona ||--o{ triangulo : contains
-    planta ||--|{ zona : contains
-    usuario ||--o{ empresa : belongs to
-
-    ```
+    User ||--o{ Administrador : belongs_to
+    Administrador ||--o{ Edificio : owns
+    Edificio ||--|{ Planta : contains
+    Edificio ||--o{ Empresa : belongs_to
+    Dispositivo ||--o{ Punto : has
+    Triangulo ||--o{ Punto : has
+    Zona ||--o{ Triangulo : contains
+    Planta ||--|{ Zona : contains
+    User ||--o{ Empresa : belongs_to
