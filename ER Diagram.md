@@ -1,5 +1,5 @@
+```mermaid
 erDiagram
-    
     entity "Usuario" as usuario {
         id_usuario INT <<PK>>
         email VARCHAR(255)
@@ -64,3 +64,5 @@ erDiagram
     zona ||--o{ triangulo : contains
     planta ||--|{ zona : contains
     usuario ||--o{ empresa : belongs to
+
+    ```
