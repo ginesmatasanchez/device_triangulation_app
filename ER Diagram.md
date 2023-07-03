@@ -1,4 +1,5 @@
 erDiagram
+    
     entity "Usuario" as usuario {
         id_usuario INT <<PK>>
         email VARCHAR(255)
