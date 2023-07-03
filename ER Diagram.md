@@ -1,3 +1,4 @@
+````mermaid
 erDiagram
     User {
         Int id_usuario PK
@@ -63,3 +64,5 @@ erDiagram
     Zona ||--o{ Triangulo : contains
     Planta ||--|{ Zona : contains
     User ||--o{ Empresa : belongs_to
+
+´´´
