@@ -1,8 +1,16 @@
+```mermaid
 erDiagram
-    User {
+    Usuario {
         Int id_usuario PK
+        String nombre
+        String clave
         String email
-        String contrasena
+        Int id_empresa
+        Int id_perfil
+        String movil
+        Date creado
+        Date ultimologin
+        Int activo
     }
 
     Administrador {
@@ -47,19 +55,27 @@ erDiagram
     Empresa {
         Int id_empresa PK
         String nombre
+        String nif
         String direccion
+        String cp
+        String poblacion
+        String provincia
+        String pais
+        String registro
         String telefono
+        String movil
         String email
+        String web
         Timestamp creado
         Int activo
     }
 
-    User ||--o{ Administrador : belongs_to
-    Administrador ||--o{ Edificio : owns
-    Edificio ||--|{ Planta : contains
-    Edificio ||--o{ Empresa : belongs_to
-    Dispositivo ||--o{ Punto : has
-    Triangulo ||--o{ Punto : has
-    Zona ||--o{ Triangulo : contains
-    Planta ||--|{ Zona : contains
-    User ||--o{ Empresa : belongs_to
+    Usuario ||--o{ Administrador : pertenece_a
+    Administrador ||--o{ Edificio : es_propietario_de
+    Edificio ||--|{ Planta : contiene
+    Edificio ||--o{ Empresa : pertenece_a
+    Dispositivo ||--o{ Punto : tiene
+    Triangulo ||--o{ Punto : tiene
+    Zona ||--o{ Triangulo : contiene
+    Planta ||--|{ Zona : contiene
+    Usuario ||--o{ Empresa : pertenece_a
