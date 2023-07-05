@@ -20,8 +20,5 @@ sequenceDiagram
     Usuario->>Home: Navegar a /home/soluciones
     Home-->>Usuario: Mostrar beneficios y descripción de la aplicación
 
-    Usuario->>Home: Navegar a /home/tecnologia
-    Home-->>Usuario: Mostrar descripción de la tecnología UWB
-
     Usuario->>Home: Navegar a /home/contacto
     Home-->>Usuario: Mostrar formulario de contacto mediante email
