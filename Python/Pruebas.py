@@ -190,11 +190,11 @@ if __name__ == "__main__":
     
     
 from flask import Flask, redirect, render_template, url_for
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 from Pruebas2 import Pruebas2
 
 # create the extension
-db = SQLAlchemy()
+#db = SQLAlchemy()
 
 app = Flask(__name__)
 app.register_blueprint(Pruebas2, url_prefix='/admin')
@@ -229,4 +229,4 @@ if __name__ == "__main__":
 # configure the PostgreSQL database, relative to the app instance folder
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://myuser:mypassword@localhost:5432/mydatabase'
 # initialize the app with the extension
-db.init_app(app)
+#db.init_app(app)
