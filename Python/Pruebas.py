@@ -211,9 +211,9 @@ def landing():
 def solutions():
     return render_template("solutions.html")
 
-@app.route('/landing/technology')
+"""@app.route('/landing/technology')
 def technology():
-    return render_template("technology.html")
+    return render_template("technology.html")"""
 
 @app.route('/landing/contact')
 def contact():
